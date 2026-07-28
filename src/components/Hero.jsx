@@ -4,6 +4,7 @@ import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
 import profileImg_1 from "../assets/profile_1.jpg";
 import NetworkBackground from "./NetworkBackground";
+import MagneticButton from "./MagneticButton";
 
 const TYPED_WORDS = ["Full Stack Developer", "Python Developer", "UI Enthusiast"];
 
@@ -129,22 +130,22 @@ const Hero = () => {
             variants={itemVariants}
             className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
           >
-            <motion.a
+            <MagneticButton
               href="#project"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="btn-cta"
+              className="btn-cta cursor-pointer"
             >
               View Work
-            </motion.a>
-            <motion.a
+            </MagneticButton>
+            <MagneticButton
               href="#contact"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              className="px-8 py-4 neu-button text-[var(--accent)] font-semibold rounded-2xl"
+              className="px-8 py-4 neu-button text-[var(--accent)] font-semibold rounded-2xl cursor-pointer"
             >
               Contact Me
-            </motion.a>
+            </MagneticButton>
           </motion.div>
 
           {/* Social Links */}
@@ -196,7 +197,7 @@ const Hero = () => {
                   src={profileImg_1}
                   alt="Akash Deep - Full Stack Developer"
                   className="w-full h-full object-cover"
-                  loading="lazy"
+                  fetchpriority="high"
                 />
               </div>
 

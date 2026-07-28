@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { FaArrowRight } from "react-icons/fa";
 import { projects } from "../assets/assets";
 import ProjectCard from "./ProjectCard";
+import MagneticButton from "./MagneticButton";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -61,17 +62,15 @@ const Project = () => {
 
         {/* View More Button */}
         <motion.div variants={itemVariants} className="text-center mt-12">
-          <motion.a
+          <MagneticButton
             href="https://github.com/akashdeep-tech-os"
             target="_blank"
             rel="noopener noreferrer"
-            whileHover={{ scale: 1.02, x: 5 }}
-            whileTap={{ scale: 0.98 }}
-            className="inline-flex items-center gap-3 px-8 py-4 neu-button text-[var(--accent)] font-semibold rounded-2xl group"
+            className="inline-flex items-center gap-3 px-8 py-4 neu-button text-[var(--accent)] font-semibold rounded-2xl group cursor-pointer"
           >
             <span>View All on GitHub</span>
             <FaArrowRight className="group-hover:translate-x-1 transition-transform duration-300" />
-          </motion.a>
+          </MagneticButton>
         </motion.div>
       </div>
     </motion.section>

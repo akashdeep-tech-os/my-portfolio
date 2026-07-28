@@ -1,0 +1,19 @@
+{
+  "name": "Akash Deep — Full Stack Developer",
+  "short_name": "Akash Deep",
+  "description": "Portfolio of Akash Deep, Full Stack Developer specializing in Python, Django, and React.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0F172A",
+  "theme_color": "#0F172A",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "lang": "en",
+  "categories": ["portfolio", "technology"]
+}

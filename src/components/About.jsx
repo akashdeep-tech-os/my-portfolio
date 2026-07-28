@@ -111,7 +111,7 @@ const About = () => {
                     <div className="text-[var(--accent)] text-3xl mb-3">
                       <data.icon />
                     </div>
-                    <h4 className="text-theme-primary font-semibold mb-2">{data.title}</h4>
+                    <h3 className="text-theme-primary font-semibold mb-2">{data.title}</h3>
                     <p className="text-theme-secondary text-sm leading-relaxed">
                       {data.description}
                     </p>

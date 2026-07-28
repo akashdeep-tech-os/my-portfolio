@@ -1,6 +1,7 @@
-import { useRef, useState } from "react";
+import { useRef, useState, useCallback } from "react";
 import { motion } from "framer-motion";
 import { init, sendForm } from "@emailjs/browser";
+import Toast from "./Toast";
 import {
   FaEnvelope,
   FaGithub,
@@ -11,6 +12,7 @@ import {
   FaPaperPlane,
   FaCheck,
   FaExclamationTriangle,
+  FaCopy,
 } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
 
@@ -46,6 +48,13 @@ const Contact = () => {
   const formRef = useRef();
   const [sending, setSending] = useState(false);
   const [statusMessage, setStatusMessage] = useState(null);
+  const [toastVisible, setToastVisible] = useState(false);
+
+  const copyEmail = useCallback(() => {
+    navigator.clipboard.writeText("akashdeep58533@gmail.com").then(() => {
+      setToastVisible(true);
+    });
+  }, []);
 
   const sendEmail = async (e) => {
     e.preventDefault();
@@ -264,12 +273,23 @@ const Contact = () => {
                 <div className="w-12 h-12 neu-pressed rounded-2xl flex items-center justify-center">
                   <info.icon className={`text-xl ${info.color}`} />
                 </div>
-                <div>
-                  <h3 className="text-theme-primary font-semibold mb-1">
-                    {info.title}
-                  </h3>
-                  <p className="text-theme-secondary text-sm">{info.value}</p>
-                </div>
+                    <div>
+                      <h3 className="text-theme-primary font-semibold mb-1">
+                        {info.title}
+                      </h3>
+                      <p className="text-theme-secondary text-sm flex items-center gap-2">
+                        {info.value}
+                        {info.title === "Email" && (
+                          <button
+                            onClick={copyEmail}
+                            className="text-[var(--accent)] hover:scale-110 transition-transform"
+                            aria-label="Copy email address"
+                          >
+                            <FaCopy size={12} />
+                          </button>
+                        )}
+                      </p>
+                    </div>
               </motion.div>
             ))}
 
@@ -307,6 +327,8 @@ const Contact = () => {
           </motion.div>
         </div>
       </div>
+
+      <Toast message="Email copied to clipboard!" visible={toastVisible} onClose={() => setToastVisible(false)} />
     </motion.section>
   );
 };
