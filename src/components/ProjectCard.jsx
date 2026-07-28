@@ -1,50 +1,83 @@
-import React from 'react'
+import React from "react";
+import { motion } from "framer-motion";
+import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 
 const ProjectCard = ({ title, description, image, tech, demo, code }) => {
   return (
-    <div className='bg-dark-300 rounded-2xl overflow-hidden hover:-translate-y-2 transition duration-300 cursor-pointer'>
-      <img src={image} alt={title} className='w-full h-60 object-cover' />
+    <motion.article
+      whileHover={{ y: -8 }}
+      className="neu-card rounded-3xl overflow-hidden group cursor-pointer"
+    >
+      {/* Image Container */}
+      <div className="relative overflow-hidden h-56">
+        <motion.img
+          whileHover={{ scale: 1.1 }}
+          transition={{ duration: 0.5 }}
+          src={image}
+          alt={title}
+          loading="lazy"
+          className="w-full h-full object-cover"
+        />
 
-      <div className='p-6'>
-        <h3 className='text-xl font-semibold mb-2'>{title}</h3>
+        {/* Glass Overlay on Hover */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[var(--text-primary)]/80 via-[var(--text-primary)]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-        <p className='text-gray-400 mb-4'>{description}</p>
+        {/* Action Buttons */}
+        <div className="absolute bottom-4 left-4 right-4 flex gap-3 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+          {demo && demo !== "#" && (
+            <a
+              href={demo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 flex items-center justify-center gap-2 py-2.5 gradient-primary-r text-white rounded-xl font-medium text-sm hover:shadow-accent transition-all duration-300"
+            >
+              <FaExternalLinkAlt size={12} />
+              <span>Live Demo</span>
+            </a>
+          )}
+          {code && code !== "#" && (
+            <a
+              href={code}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 flex items-center justify-center gap-2 py-2.5 glass text-white rounded-xl font-medium text-sm hover:bg-white/30 transition-colors duration-300"
+            >
+              <FaGithub size={14} />
+              <span>Code</span>
+            </a>
+          )}
+        </div>
+      </div>
 
-        <div className='flex flex-wrap gap-2 mb-4'>
-          {tech.map((item, index) => (
+      {/* Content */}
+      <div className="p-6">
+        <h3 className="text-xl font-semibold text-theme-primary mb-2 group-hover:text-[var(--accent)] transition-colors duration-300">
+          {title}
+        </h3>
+
+        <p className="text-theme-secondary text-sm mb-4 leading-relaxed line-clamp-2">
+          {description}
+        </p>
+
+        {/* Tech Tags */}
+        <div className="flex flex-wrap gap-2">
+          {tech.slice(0, 4).map((item, index) => (
             <span
               key={index}
-              className='px-3 py-1 bg-dark-400 rounded-full text-sm'
+              className="px-3 py-1.5 neu-pressed text-theme-secondary text-xs font-medium rounded-lg"
             >
               {item}
             </span>
           ))}
-        </div>
-
-        <div className='flex gap-2'>
-          {/* DEMO BUTTON */}
-          <a
-            href={demo}
-            target="_blank"
-            rel="noopener noreferrer"
-            className='flex-1 text-center px-4 py-2 bg-purple rounded-lg font-medium hover:bg-purple-700 transition duration-300'
-          >
-            View Demo
-          </a>
-
-          {/* CODE BUTTON */}
-          <a
-            href={code}
-            target="_blank"
-            rel="noopener noreferrer"
-            className='flex-1 text-center px-4 py-2 border border-purple font-medium rounded-lg hover:bg-purple/20 transition duration-300'
-          >
-            Code
-          </a>
+          {tech.length > 4 && (
+            <span className="px-3 py-1.5 text-[var(--accent)] text-xs font-medium">
+              +{tech.length - 4} more
+            </span>
+          )}
         </div>
       </div>
-    </div>
-  )
-}
+    </motion.article>
+  );
+};
 
-export default ProjectCard
+export default ProjectCard;

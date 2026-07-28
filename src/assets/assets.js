@@ -1,19 +1,11 @@
-import { FaLightbulb, FaPaintBrush, FaCode, FaReact, FaServer, FaMobileAlt, FaTools, FaNodeJs, FaStripe, FaVuejs, FaFire, FaDatabase, FaCloud, FaRobot,FaPython,FaMicrophone} from 'react-icons/fa';
+import { FaLightbulb, FaPaintBrush, FaCode, FaReact, FaServer, FaMobileAlt, FaTools, FaNodeJs, FaDatabase, FaCloud, FaRobot, FaPython, FaMicrophone, FaStripe } from 'react-icons/fa';
 
-import profileImg from '../assets/profile.avif';
-import profileImg_1 from "../assets/profile_1.jpg"
 import projectImg1 from '../assets/profile1new.png';
 import projectImg2 from '../assets/project2.avif';
 import projectImg3 from '../assets/project3.avif';
 import projectImg4 from '../assets/project4.avif';
 import projectImg5 from '../assets/project5.avif';
 import projectImg6 from '../assets/project6.avif';
-
-
-export const assets = {
-    profileImg,
-    profileImg_1,
-}
 
 
 export const aboutInfo = [

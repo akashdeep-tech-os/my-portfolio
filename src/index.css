@@ -1,33 +1,343 @@
-@import url('https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 @import "tailwindcss";
 
-*{
-  font-family: Saira, sans-serif;
-}
-@theme{
-  --color-dark-100:#1a1a1a;
-  --color-dark-200:#1f1f1f;
-  --color-dark-300:#2d2d2d;
-  --color-dark-400:#3d3d3d;
-  --color-purple:#8B5CF6;
-  --color-pink:#EC4899;
-  --color-blue:#3B82F6;
-}
-
-.typewriter{
-  overflow: hidden;
-  border-right: 0.15em solid #8B5CF6;
-  white-space: nowrap;
-  width: 0;
-  animation: typing 3s steps(20, end) forwards,blink-caret 0.75s step-end 4;
-}
-
-@keyframes typing {
-  from {width: 0;}
-  to {width: 15ch;}
+/* Theme Variables */
+:root {
+  --bg-primary: #EEF2F7;
+  --bg-secondary: #E7ECF2;
+  --bg-card: #EDF2F7;
+  --bg-card-alt: #F5F8FC;
+  --text-primary: #1F2937;
+  --text-secondary: #6B7280;
+  --text-muted: #9CA3AF;
+  --accent: #4F8EF7;
+  --accent-hover: #3B82F6;
+  --accent-gradient-from: #4F8EF7;
+  --accent-gradient-to: #6366F1;
+  --shadow-dark: rgba(163, 177, 198, 0.6);
+  --shadow-light: rgba(255, 255, 255, 0.9);
+  --shadow-dark-strong: rgba(163, 177, 198, 0.8);
+  --shadow-light-strong: rgba(255, 255, 255, 1);
+  --border-subtle: rgba(163, 177, 198, 0.2);
+  --neu-bg: #EDF2F7;
+  --neu-pressed-bg: #E4E9F0;
 }
 
-@keyframes blink-caret {
-  from, to {border-color: transparent;}
-  50% {border-color: #8B5CF6;}
+[data-theme="dark"] {
+  --bg-primary: #0F172A;
+  --bg-secondary: #1E293B;
+  --bg-card: #1E293B;
+  --bg-card-alt: #273548;
+  --text-primary: #F1F5F9;
+  --text-secondary: #94A3B8;
+  --text-muted: #64748B;
+  --accent: #60A5FA;
+  --accent-hover: #3B82F6;
+  --accent-gradient-from: #60A5FA;
+  --accent-gradient-to: #818CF8;
+  --shadow-dark: rgba(0, 0, 0, 0.4);
+  --shadow-light: rgba(30, 41, 59, 0.8);
+  --shadow-dark-strong: rgba(0, 0, 0, 0.6);
+  --shadow-light-strong: rgba(30, 41, 59, 0.9);
+  --border-subtle: rgba(100, 116, 139, 0.3);
+  --neu-bg: #1E293B;
+  --neu-pressed-bg: #162032;
+}
+
+@theme {
+  --color-neu-bg: #EEF2F7;
+  --color-neu-bg-secondary: #E7ECF2;
+  --color-neu-card: #EDF2F7;
+  --color-neu-accent: #4F8EF7;
+  --color-neu-accent-hover: #3B82F6;
+  --color-neu-text: #1F2937;
+  --color-neu-text-secondary: #6B7280;
+  --color-neu-success: #22C55E;
+  --color-neu-warning: #F59E0B;
+  --color-neu-error: #EF4444;
+  --color-neu-white: #FFFFFF;
+}
+
+* {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Theme-aware utility classes */
+.bg-theme-primary { background-color: var(--bg-primary); }
+.bg-theme-secondary { background-color: var(--bg-secondary); }
+.bg-theme-card { background-color: var(--bg-card); }
+.bg-theme-card-alt { background-color: var(--bg-card-alt); }
+.text-theme-primary { color: var(--text-primary); }
+.text-theme-secondary { color: var(--text-secondary); }
+.text-theme-muted { color: var(--text-muted); }
+.text-theme-accent { color: var(--accent); }
+.placeholder-theme-muted::placeholder { color: var(--text-muted); }
+.border-theme-subtle { border-color: var(--border-subtle); }
+
+/* Performance: reduce repaint for fixed/absolutely positioned elements */
+.neu-card,
+.neu-button,
+.neu-pressed,
+.gradient-primary,
+.gradient-primary-r,
+.gradient-primary-br {
+  will-change: transform;
+}
+
+/* Neumorphism Utilities */
+.neu-pressed {
+  background: var(--bg-card);
+  box-shadow: 
+    inset 6px 6px 12px var(--shadow-dark),
+    inset -6px -6px 12px var(--shadow-light);
+}
+
+.neu-card {
+  background: var(--bg-card);
+  border-radius: 20px;
+  box-shadow: 
+    10px 10px 25px var(--shadow-dark),
+    -10px -10px 25px var(--shadow-light);
+}
+
+.neu-button {
+  background: linear-gradient(145deg, var(--bg-card-alt), var(--bg-card));
+  box-shadow: 
+    6px 6px 15px var(--shadow-dark),
+    -6px -6px 15px var(--shadow-light);
+  border-radius: 12px;
+  transition: all 0.2s ease;
+}
+
+.neu-button:active {
+  box-shadow: 
+    inset 4px 4px 10px var(--shadow-dark),
+    inset -4px -4px 10px var(--shadow-light);
+}
+
+.neu-input {
+  background: var(--bg-card);
+  box-shadow: 
+    inset 4px 4px 10px var(--shadow-dark),
+    inset -4px -4px 10px var(--shadow-light);
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.neu-input:focus {
+  box-shadow: 
+    inset 4px 4px 10px var(--shadow-dark-strong),
+    inset -4px -4px 10px var(--shadow-light-strong);
+}
+
+/* Glassmorphism */
+.glass {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+[data-theme="dark"] .glass {
+  background: rgba(30, 41, 59, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card {
+  background: rgba(237, 242, 247, 0.7);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+[data-theme="dark"] .glass-card {
+  background: rgba(30, 41, 59, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(135deg, var(--accent-gradient-from), var(--accent-gradient-to));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--accent-gradient-from), var(--accent-gradient-to));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--accent-hover), #6D28D9);
+}
+
+/* Selection */
+::selection {
+  background: rgba(79, 142, 247, 0.3);
+  color: var(--text-primary);
+}
+
+/* ============================================================
+   BRAND COLORS
+   ============================================================ */
+.color-heart { color: #EF4444; }
+.color-linkedin { color: #0A66C2; }
+.color-twitter { color: #1DA1F2; }
+.color-email { color: #EA4335; }
+.color-leetcode { color: #FFA116; }
+.color-success { color: #22C55E; }
+.color-warning { color: #F59E0B; }
+.color-error { color: #EF4444; }
+
+/* ============================================================
+   GRADIENT UTILITIES
+   ============================================================ */
+.gradient-primary {
+  background: linear-gradient(135deg, var(--accent-gradient-from), var(--accent-gradient-to));
+}
+
+.gradient-primary-r {
+  background: linear-gradient(to right, var(--accent-gradient-from), var(--accent-gradient-to));
+}
+
+.gradient-primary-br {
+  background: linear-gradient(to bottom right, var(--accent-gradient-from), var(--accent-gradient-to));
+}
+
+.gradient-primary-b {
+  background: linear-gradient(to bottom, var(--accent-gradient-from), var(--accent-gradient-to), var(--accent-gradient-from));
+}
+
+.gradient-primary-r-full {
+  background: linear-gradient(to right, var(--accent-gradient-from), var(--accent-gradient-to));
+  color: white;
+}
+
+.gradient-primary-br-full {
+  background: linear-gradient(to bottom right, var(--accent-gradient-from), var(--accent-gradient-to));
+  color: white;
+}
+
+/* ============================================================
+   SHADOW UTILITIES
+   ============================================================ */
+.shadow-accent {
+  box-shadow: 0 10px 25px -5px rgba(79, 142, 247, 0.3);
+}
+
+.shadow-accent-lg {
+  box-shadow: 0 20px 40px -10px rgba(79, 142, 247, 0.4);
+}
+
+/* ============================================================
+   CTA BUTTON (Primary)
+   ============================================================ */
+.btn-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  background: linear-gradient(to right, var(--accent-gradient-from), var(--accent-gradient-to));
+  color: white;
+  border-radius: 1rem;
+  font-weight: 600;
+  box-shadow: 0 10px 25px -5px rgba(79, 142, 247, 0.3);
+  transition: all 0.3s ease;
+}
+
+.btn-cta:hover {
+  box-shadow: 0 20px 40px -10px rgba(79, 142, 247, 0.4);
+  transform: scale(1.02);
+}
+
+.btn-cta:active {
+  transform: scale(0.98);
+}
+
+/* ============================================================
+   STATUS BADGES
+   ============================================================ */
+.badge-success {
+  background: rgba(34, 197, 94, 0.1);
+  color: #22C55E;
+}
+
+.badge-error {
+  background: rgba(239, 68, 68, 0.1);
+  color: #EF4444;
+}
+
+/* ============================================================
+   DIVIDER UTILITIES
+   ============================================================ */
+.divider-gradient {
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--accent), transparent);
+  opacity: 0.3;
+}
+
+/* ============================================================
+   LOADING SPINNER
+   ============================================================ */
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ============================================================
+   SOCIAL HOVER COLORS
+   ============================================================ */
+.hover-linkedin:hover { color: #0A66C2; }
+.hover-twitter:hover { color: #1DA1F2; }
+.hover-email:hover { color: #EA4335; }
+.hover-leetcode:hover { color: #FFA116; }
+.hover-github:hover { color: var(--text-primary); }
+
+.hover-linkedin-bg:hover { color: white; background-color: #0A66C2; }
+.hover-twitter-bg:hover { color: white; background-color: #1DA1F2; }
+.hover-leetcode-bg:hover { color: white; background-color: #FFA116; }
+
+/* ============================================================
+   TIMELINE DOT
+   ============================================================ */
+.timeline-dot {
+  width: 16px;
+  height: 16px;
+  background: var(--accent);
+  border-radius: 50%;
+  border: 4px solid var(--bg-secondary);
+  z-index: 10;
 }
