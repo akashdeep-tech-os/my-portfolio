@@ -10,8 +10,17 @@ const Footer = () => {
     { icon: SiLeetcode, href: "https://leetcode.com/akashdeep", label: "LeetCode", hoverClass: "hover-leetcode" },
   ];
 
+  const quickLinks = [
+    { label: "Home", href: "#home" },
+    { label: "About", href: "#about" },
+    { label: "Skills", href: "#skills" },
+    { label: "Projects", href: "#project" },
+    { label: "Experience", href: "#experience" },
+    { label: "Contact", href: "#contact" },
+  ];
+
   return (
-    <footer className="py-12 bg-theme-secondary">
+    <footer className="py-12 bg-theme-secondary" role="contentinfo">
       <div className="container mx-auto px-6">
         {/* Top Section */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-8">
@@ -22,9 +31,30 @@ const Footer = () => {
             viewport={{ once: true }}
             className="text-2xl font-bold"
           >
-            <span className="gradient-text">Akash</span>
-            <span className="text-theme-secondary">Deep</span>
+            <a href="/" aria-label="Akash Deep — Home">
+              <span className="gradient-text">Akash</span>
+              <span className="text-theme-secondary">Deep</span>
+            </a>
           </motion.div>
+
+          {/* Quick Links for internal linking */}
+          <motion.nav
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            aria-label="Footer navigation"
+            className="flex flex-wrap justify-center gap-x-6 gap-y-2"
+          >
+            {quickLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className="text-theme-secondary text-sm hover:text-[var(--accent)] transition-colors duration-300"
+              >
+                {link.label}
+              </a>
+            ))}
+          </motion.nav>
 
           {/* Social Links */}
           <motion.div

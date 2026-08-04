@@ -63,7 +63,7 @@ const About = () => {
                     transition={{ duration: 0.4 }}
                     className="w-full h-auto object-cover"
                     src={profileImg}
-                    alt="Akash Deep - Profile"
+                    alt="Akash Deep, Python and React developer based in New Delhi, India"
                     loading="lazy"
                   />
                 </div>

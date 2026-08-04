@@ -4,50 +4,112 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="description" content="Akash Deep — Software Engineer portfolio. React.js, FastAPI, PostgreSQL, and modern web technologies." />
-    <meta name="keywords" content="Akash Deep, Software Engineer, Full Stack Developer, React, FastAPI, PostgreSQL, Portfolio" />
+
+    <!-- Google Search Console Verification -->
+    <meta name="google-site-verification" content="google97d22ba5c7e986aa" />
+
+    <!-- Primary SEO -->
+    <title>Akash Deep | Full Stack Developer Portfolio</title>
+    <meta name="description" content="Portfolio of Akash Deep, Python & Full Stack Developer from New Delhi, India. I build scalable web apps and APIs with React.js, FastAPI, Django, PostgreSQL and AI. Explore projects, skills and experience." />
+    <meta name="keywords" content="Akash Deep, Akash Deep Portfolio, Python Developer, Full Stack Developer, FastAPI Developer, Django Developer, React Developer, Software Engineer, AI Developer, Machine Learning Engineer, Computer Vision Developer, Web Developer India, React.js Developer, JavaScript Developer, Python Developer India" />
     <meta name="author" content="Akash Deep" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta name="theme-color" content="#0F172A" />
     <meta name="color-scheme" content="dark light" />
 
-    <meta property="og:title" content="Akash Deep | Software Engineer" />
-    <meta property="og:description" content="Software Engineer specializing in React.js, FastAPI, PostgreSQL, and modern web technologies." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://akashdeep.dev" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Akash Deep | Software Engineer" />
-    <meta name="twitter:description" content="Software Engineer specializing in React.js, FastAPI, PostgreSQL, and modern web technologies." />
+    <!-- Local SEO -->
+    <meta name="geo.region" content="IN-DL" />
+    <meta name="geo.placename" content="New Delhi, India" />
 
-    <link rel="canonical" href="https://akashdeep.dev" />
+    <!-- Canonical -->
+    <link rel="canonical" href="https://akashdeepdev.netlify.app/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Akash Deep Portfolio" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:url" content="https://akashdeepdev.netlify.app/" />
+    <meta property="og:title" content="Akash Deep | Full Python Developer" />
+    <meta property="og:description" content="Python & Full Stack Developer from New Delhi, India. I build scalable web apps with React.js, FastAPI, Django and AI. Explore my portfolio." />
+    <meta property="og:image" content="https://akashdeepdev.netlify.app/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/jpeg" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://akashdeepdev.netlify.app/" />
+    <meta name="twitter:title" content="Akash Deep | Full Python Developer" />
+    <meta name="twitter:description" content="Python & Full Stack Developer from New Delhi, India. Building scalable web apps with React.js, FastAPI, Django and AI." />
+    <meta name="twitter:image" content="https://akashdeepdev.netlify.app/og-image.jpg" />
+
+    <!-- Icons -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/manifest.json" />
 
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'" />
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" /></noscript>
 
-    <link rel="preload" as="image" href="/src/assets/profile_1.jpg" fetchpriority="high" />
-    <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+    <!-- Performance: preload the hero (LCP) image -->
+    <link rel="preload" as="image" href="/profile-akash-deep.jpg" fetchpriority="high" />
 
+    <!-- Structured Data: WebSite + ProfilePage + Person -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Akash Deep",
-      "jobTitle": "Software Engineer",
-      "url": "https://akashdeep.dev",
-      "knowsAbout": ["React.js", "FastAPI", "PostgreSQL", "JavaScript", "Java", "Spring Boot"],
-      "sameAs": [
-        "https://github.com/akashdeep-tech-os",
-        "https://linkedin.com/in/akashdeep"
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://akashdeepdev.netlify.app/#website",
+          "url": "https://akashdeepdev.netlify.app/",
+          "name": "Akash Deep | Full Python Developer Portfolio",
+          "description": "Portfolio of Akash Deep, Python & Full Stack Developer from New Delhi, India specialising in React.js, FastAPI, Django and AI.",
+          "inLanguage": "en",
+          "publisher": { "@id": "https://akashdeepdev.netlify.app/#person" }
+        },
+        {
+          "@type": "ProfilePage",
+          "@id": "https://akashdeepdev.netlify.app/#profile",
+          "url": "https://akashdeepdev.netlify.app/",
+          "name": "Akash Deep — Full Python Developer Portfolio",
+          "isPartOf": { "@id": "https://akashdeepdev.netlify.app/#website" },
+          "mainEntity": { "@id": "https://akashdeepdev.netlify.app/#person" }
+        },
+        {
+          "@type": "Person",
+          "@id": "https://akashdeepdev.netlify.app/#person",
+          "name": "Akash Deep",
+          "jobTitle": "Full Stack Developer",
+          "description": "Python & Full Stack Developer building scalable web applications, RESTful APIs and AI projects with React.js, FastAPI and Django.",
+          "url": "https://akashdeepdev.netlify.app/",
+          "image": "https://akashdeepdev.netlify.app/og-image.jpg",
+          "email": "mailto:akashdeep58533@gmail.com",
+          "telephone": "+91-7061523346",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "New Delhi",
+            "addressCountry": "IN"
+          },
+          "knowsAbout": [
+            "Python", "React.js", "FastAPI", "Django", "PostgreSQL", "MongoDB",
+            "JavaScript", "Node.js", "Java", "Spring Boot", "Tailwind CSS",
+            "Machine Learning", "Computer Vision", "AI Development", "REST APIs"
+          ],
+          "sameAs": [
+            "https://github.com/akashdeep-tech-os",
+            "https://linkedin.com/in/akashdeep",
+            "https://twitter.com/akashdeep",
+            "https://leetcode.com/akashdeep"
+          ]
+        }
       ]
     }
     </script>
-
-    <title>Akash Deep | Software Engineer</title>
   </head>
   <body class="bg-theme-primary text-theme-primary">
     <div id="root"></div>

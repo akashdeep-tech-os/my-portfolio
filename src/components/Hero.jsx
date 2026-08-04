@@ -2,9 +2,10 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
-import profileImg_1 from "../assets/profile_1.jpg";
 import NetworkBackground from "./NetworkBackground";
 import MagneticButton from "./MagneticButton";
+
+const profileImg_1 = "/profile-akash-deep.jpg";
 
 const TYPED_WORDS = ["Software Engineer", "Full Stack Developer", "React & FastAPI Developer"];
 
@@ -115,7 +116,10 @@ const Hero = () => {
             variants={itemVariants}
             className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-6 text-theme-secondary min-h-[1.5em]"
           >
-            <Typewriter words={TYPED_WORDS} />
+            <span className="sr-only">
+              Software Engineer, Full Stack Developer, React & FastAPI Developer
+            </span>
+            <Typewriter words={TYPED_WORDS} aria-hidden="true" />
           </motion.h2>
 
           <motion.p
@@ -196,9 +200,10 @@ const Hero = () => {
               <div className="absolute inset-3 rounded-full overflow-hidden">
                 <img
                   src={profileImg_1}
-                  alt="Akash Deep - Software Engineer"
+                  alt="Akash Deep, Full Stack Developer from New Delhi, India"
                   className="w-full h-full object-cover"
                   fetchpriority="high"
+                  decoding="async"
                 />
               </div>
 

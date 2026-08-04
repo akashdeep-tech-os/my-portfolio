@@ -77,6 +77,7 @@ const Navbar = () => {
       className={`fixed w-full z-50 transition-all duration-500 ${
         scrolled ? "py-3 px-4 md:px-8" : "py-4 px-4 md:px-8"
       }`}
+      aria-label="Main navigation"
     >
       <div
         className={`container mx-auto flex justify-between items-center rounded-2xl px-6 py-4 transition-all duration-500 ${
@@ -85,11 +86,12 @@ const Navbar = () => {
       >
         {/* Logo */}
         <motion.a
-          href="#"
+          href="/"
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
           className="text-2xl font-bold flex items-center gap-2"
+          aria-label="Akash Deep — Home"
         >
           <span className="gradient-text">Akash</span>
           <span className="text-theme-secondary">Deep</span>
@@ -105,18 +107,19 @@ const Navbar = () => {
           {navItems.map((item, index) => {
             const isActive = activeSection === item;
             return (
-              <motion.a
-                key={item}
-                href={`#${item}`}
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1 + index * 0.05 }}
-                className={`relative px-4 py-2 font-medium rounded-xl transition-all duration-300 group ${
-                  isActive
-                    ? "text-[var(--accent)]"
-                    : "text-theme-secondary hover:text-[var(--accent)] hover:bg-[var(--bg-card)]"
-                }`}
-              >
+                <motion.a
+                  key={item}
+                  href={`#${item}`}
+                  initial={{ opacity: 0, y: -10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.1 + index * 0.05 }}
+                  aria-current={isActive ? "page" : undefined}
+                  className={`relative px-4 py-2 font-medium rounded-xl transition-all duration-300 group ${
+                    isActive
+                      ? "text-[var(--accent)]"
+                      : "text-theme-secondary hover:text-[var(--accent)] hover:bg-[var(--bg-card)]"
+                  }`}
+                >
                 <span className="capitalize">{item}</span>
                 <span
                   className={`absolute bottom-0 left-1/2 -translate-x-1/2 h-0.5 bg-[var(--accent)] transition-all duration-300 rounded-full ${
@@ -194,7 +197,9 @@ const Navbar = () => {
             whileTap={{ scale: 0.9 }}
             onClick={() => setShowMenu(!showMenu)}
             className="w-10 h-10 neu-button flex items-center justify-center text-theme-primary"
-            aria-label="Toggle menu"
+            aria-label="Toggle navigation menu"
+            aria-expanded={showMenu}
+            aria-controls="mobile-menu"
           >
             {showMenu ? <FaXmark size={18} /> : <FaBars size={18} />}
           </motion.button>
@@ -211,6 +216,9 @@ const Navbar = () => {
             exit="exit"
             transition={{ duration: 0.3, ease: "easeOut" }}
             className="md:hidden mt-3 mx-4 neu-card p-6 rounded-3xl"
+            id="mobile-menu"
+            role="menu"
+            aria-label="Mobile navigation menu"
           >
             <div className="flex flex-col space-y-3">
               {navItems.map((item, index) => (

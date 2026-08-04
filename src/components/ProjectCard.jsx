@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { FaExternalLinkAlt, FaGithub, FaExpand } from "react-icons/fa";
 import ImageLightbox from "./ImageLightbox";
 
-const ProjectCard = ({ title, description, image, tech, demo, code }) => {
+const ProjectCard = ({ title, description, image, alt, tech, demo, code }) => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
 
   return (
@@ -17,7 +17,7 @@ const ProjectCard = ({ title, description, image, tech, demo, code }) => {
             whileHover={{ scale: 1.1 }}
             transition={{ duration: 0.5 }}
             src={image}
-            alt={title}
+            alt={alt || `${title} project built by Akash Deep`}
             loading="lazy"
             className="w-full h-full object-cover"
             onClick={() => setLightboxOpen(true)}
@@ -88,7 +88,7 @@ const ProjectCard = ({ title, description, image, tech, demo, code }) => {
 
       <ImageLightbox
         src={image}
-        alt={title}
+        alt={alt || `${title} project built by Akash Deep`}
         onClose={() => setLightboxOpen(false)}
         visible={lightboxOpen}
       />
