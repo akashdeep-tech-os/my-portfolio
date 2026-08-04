@@ -263,6 +263,13 @@ body {
   color: white;
 }
 
+/* Skills — Learn More button gradient fill on card hover */
+.group:hover .btn-skill-learn {
+  background: linear-gradient(to right, var(--accent-gradient-from), var(--accent-gradient-to));
+  color: #ffffff;
+  box-shadow: 0 8px 20px -8px rgba(79, 142, 247, 0.5);
+}
+
 .gradient-primary-br-full {
   background: linear-gradient(to bottom right, var(--accent-gradient-from), var(--accent-gradient-to));
   color: white;

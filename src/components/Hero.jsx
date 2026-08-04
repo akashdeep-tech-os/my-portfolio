@@ -6,7 +6,7 @@ import profileImg_1 from "../assets/profile_1.jpg";
 import NetworkBackground from "./NetworkBackground";
 import MagneticButton from "./MagneticButton";
 
-const TYPED_WORDS = ["Full Stack Developer", "Python Developer", "UI Enthusiast"];
+const TYPED_WORDS = ["Software Engineer", "Full Stack Developer", "React & FastAPI Developer"];
 
 const Typewriter = ({ words }) => {
   const [displayed, setDisplayed] = useState("");
@@ -122,8 +122,9 @@ const Hero = () => {
             variants={itemVariants}
             className="text-lg text-theme-secondary mb-8 max-w-lg mx-auto md:mx-0 leading-relaxed"
           >
-            I create stunning web experiences with modern technologies and
-            innovative design. Passionate about building scalable applications.
+            Software Engineer with 1+ years of experience building scalable
+            enterprise web applications using React.js, JavaScript, FastAPI,
+            and PostgreSQL. Passionate about responsive UIs and high-quality software.
           </motion.p>
 
           <motion.div
@@ -195,7 +196,7 @@ const Hero = () => {
               <div className="absolute inset-3 rounded-full overflow-hidden">
                 <img
                   src={profileImg_1}
-                  alt="Akash Deep - Full Stack Developer"
+                  alt="Akash Deep - Software Engineer"
                   className="w-full h-full object-cover"
                   fetchpriority="high"
                 />

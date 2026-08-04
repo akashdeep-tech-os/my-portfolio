@@ -43,7 +43,7 @@ const About = () => {
             <span className="gradient-text">my background</span>
           </h2>
           <p className="text-theme-secondary text-lg max-w-2xl mx-auto">
-            Passionate developer with a love for creating innovative solutions
+            Software Engineer crafting scalable enterprise solutions
           </p>
         </motion.div>
 
@@ -93,11 +93,11 @@ const About = () => {
               </h3>
 
               <p className="text-theme-secondary leading-relaxed">
-                Dynamic and results-driven Python Developer with hands-on experience in backend development, full-stack web applications, and system automation. Skilled in building scalable Django/Django REST Framework applications, integrating APIs, designing relational databases, and developing secure authentication and role-based access systems.
+                Software Engineer with 1+ years of experience developing scalable enterprise web applications using React.js, JavaScript, FastAPI, and PostgreSQL. Proficient in building responsive user interfaces, integrating RESTful APIs, optimizing application performance, and delivering secure, high-quality software solutions.
               </p>
 
               <p className="text-theme-secondary leading-relaxed">
-                Strong foundation in React, JavaScript, Python, SQL, PostgreSQL, and modern development tools. Proven ability to collaborate with teams, lead projects, and deliver production-ready applications, including a full-stack real estate listing platform and AI-powered assistant.
+                Experienced in working with Spring Boot-based backend services through REST API integration in enterprise environments, including real-time Video Management System (VMS) applications. Skilled in secure authentication, role-based access control, and collaborating with backend and QA teams to ship production-ready features.
               </p>
 
               {/* Info Cards */}

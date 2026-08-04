@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { FaBars, FaXmark, FaDownload, FaSun, FaMoon } from "react-icons/fa6";
 import { motion, AnimatePresence } from "framer-motion";
-import { useTheme } from "../context/ThemeContext";
+import { useTheme } from "../context/useTheme";
 
-const RESUME_URL = "/Python_Developer_Resume.pdf";
+const RESUME_URL = "/AKASH_DEEP.pdf";
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -36,7 +36,7 @@ const Navbar = () => {
     exit: { opacity: 0, y: -20, scale: 0.95 },
   };
 
-  async function forceDownload(url, filename = "Akash_Deep_Resume.pdf") {
+  async function forceDownload(url, filename = "AKASH_DEEP.pdf") {
     try {
       const res = await fetch(url, { mode: "cors" });
       if (!res.ok) throw new Error("Network response was not ok");
@@ -56,11 +56,18 @@ const Navbar = () => {
 
   const handleDownloadClick = (e) => {
     e.preventDefault();
-    forceDownload(RESUME_URL, "Akash_Deep_Resume.pdf");
+    forceDownload(RESUME_URL, "AKASH_DEEP.pdf");
     setShowMenu(false);
   };
 
-  const navItems = ["home", "about", "skills", "project", "experience", "contact"];
+  const navItems = [
+    "home",
+    "about",
+    "skills",
+    "project",
+    "experience",
+    "contact",
+  ];
 
   return (
     <motion.nav

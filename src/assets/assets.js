@@ -1,4 +1,4 @@
-import { FaLightbulb, FaPaintBrush, FaCode, FaReact, FaServer, FaMobileAlt, FaTools, FaNodeJs, FaDatabase, FaCloud, FaRobot, FaPython, FaMicrophone, FaStripe } from 'react-icons/fa';
+import { FaLightbulb, FaPaintBrush, FaCode, FaReact, FaServer, FaTools, FaNodeJs, FaDatabase, FaCloud, FaRobot, FaPython, FaMicrophone, FaStripe } from 'react-icons/fa';
 
 import projectImg1 from '../assets/profile1new.png';
 import projectImg2 from '../assets/project2.avif';
@@ -36,37 +36,37 @@ export const skills = [
     title: 'Frontend Development',
     icon: FaReact,
     description: 'Building responsive and interactive user interfaces with modern frameworks.',
-    tags: ['React', 'Vue.js', 'TypeScript',"HTML","CSS","JavaScript"]
+    tags: ['React.js', 'HTML5', 'CSS3', 'Tailwind CSS', 'Bootstrap']
   },
   {
     title: 'Backend Development',
     icon: FaServer,
     description: 'Creating robust server-side applications and RESTful APIs.',
-    tags: ['Django', 'Flask','FastAPI','Node.js', 'Express']
+    tags: ['FastAPI', 'Django', 'Node.js', 'Express.js']
+  },
+  {
+    title: 'API & Authentication',
+    icon: FaNodeJs,
+    description: 'Securing applications with robust authentication and well-documented APIs.',
+    tags: ['RESTful APIs', 'JWT Authentication', 'Swagger/OpenAPI']
   },
   {
     title: 'Database Management',
     icon: FaDatabase,
     description: 'Designing and optimizing databases for performance and scalability.',
-    tags: ['MongoDB', 'PostgreSQL', 'MySQL', 'Firebase']
+    tags: ['PostgreSQL', 'MongoDB']
   },
   {
-    title: 'Mobile Development',
-    icon: FaMobileAlt,
-    description: 'Building cross-platform mobile applications with modern tools.',
-    tags: ['React Native', 'Flutter', 'Ionic', 'Swift']
+    title: 'Programming Languages',
+    icon: FaCode,
+    description: 'Strong foundation across general-purpose and web programming languages.',
+    tags: ['Java', 'Python', 'JavaScript', 'SQL', 'C']
   },
   {
-    title: 'Cloud & DevOps',
-    icon: FaCloud,
-    description: 'Deploying and managing applications in cloud environments.',
-    tags: ['AWS', 'Docker', 'Kubernetes', 'CI/CD']
-  },
-  {
-    title: 'Tools & Technologies',
+    title: 'Developer Tools',
     icon: FaTools,
     description: 'Essential tools and technologies I use in my development workflow.',
-    tags: ['Git & GitHub', 'Webpack', 'Figma', 'Jest']
+    tags: ['Git & GitHub', 'Docker', 'Nginx', 'Postman', 'Vite', 'ESLint', 'VS Code', 'npm']
   }
 ];
 
@@ -134,20 +134,20 @@ export const projects = [
 
 export const workData = [
   {
-  role: "Full-Stack Developer",
-  company: "E-VISION India Pvt. Ltd.",
-  duration: "Sept 2024 - Present",
+  role: "Software Developer",
+  company: "E-Vision India Pvt. Ltd.",
+  duration: "Sept 2024 - Mar 2026",
   description:
-    "At E-Vision India, I contribute to backend development, API integrations, and system automation for internal platforms and CCTV-related applications. My role focuses on building reliable REST APIs, managing device workflows, and designing efficient database structures using PostgreSQL. I work across system modules that involve user authentication, device management, and activity logging, ensuring seamless data exchange between backend systems and frontend dashboards. I also collaborate with product teams to implement secure access controls, optimize backend logic, and automate repetitive tasks to improve operational efficiency.",
+    "Developed enterprise-grade Video Management System (VMS) applications using React.js, Tailwind CSS, and modern JavaScript (ES6+) for real-time surveillance solutions. Built core modules including Live View, Playback, Dashboard, Device Management, and AI Analytics, delivering responsive and scalable user interfaces. Integrated the React.js frontend with Spring Boot REST APIs for live streaming, device management, event monitoring, and alert notifications. Developed reusable React components, optimized application performance, and collaborated with backend and QA teams to deliver production-ready features.",
   color: "purple"
 }
 ,
   {
     role: "Python Backend Developer Intern",
     company: "Brightcode Software Services Pvt. Ltd.",
-    duration: " May 2023 - June 2023",
+    duration: "May 2023 - June 2023",
     description:
-      "During my internship at Brightcode, I assisted in developing web application features using Django, gaining hands-on experience in full-stack development. I contributed to building user authentication, form handling, and admin interfaces, and worked closely with senior developers to understand project architecture and backend workflows. I wrote clean, modular Python code using Django's ORM, views, and templates, and participated in debugging and testing application features. My work strengthened my foundations in web development and improved my proficiency with technologies like HTML, CSS, JavaScript, Bootstrap, Django, and PostgreSQL.",
+      "Developed and maintained backend features using Python, Django, and PostgreSQL. Implemented Django ORM, authentication, form handling, and admin panel functionality. Gained hands-on experience in full-stack development and worked closely with senior developers to understand project architecture and backend workflows.",
     color: "pink"
   }
 ];

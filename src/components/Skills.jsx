@@ -59,7 +59,7 @@ const Skills = () => {
                 variants={cardVariants}
                 whileHover={{ y: -8, scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="neu-card p-6 rounded-3xl cursor-pointer group"
+                className="neu-card p-6 rounded-3xl cursor-pointer group flex flex-col h-full"
                 tabIndex={0}
                 aria-labelledby={`skill-${index}-title`}
                 onKeyDown={(e) => { if (e.key === "Enter") setSelectedSkill(skill); }}
@@ -86,7 +86,7 @@ const Skills = () => {
                 >
                   {skill.title}
                 </h3>
-                <p className="text-theme-secondary text-sm mb-4 leading-relaxed">
+                <p className="text-theme-secondary text-sm mb-4 leading-relaxed flex-1">
                   {skill.description}
                 </p>
 
@@ -103,7 +103,7 @@ const Skills = () => {
 
                 <button
                   onClick={() => setSelectedSkill(skill)}
-                  className="w-full py-3 neu-button text-[var(--accent)] font-medium rounded-xl group-hover:gradient-primary-r-full group-hover:text-white transition-all duration-300"
+                  className="w-full py-3 neu-button text-[var(--accent)] font-medium rounded-xl btn-skill-learn transition-all duration-300"
                   aria-label={`Learn more about ${skill.title}`}
                 >
                   Learn More
