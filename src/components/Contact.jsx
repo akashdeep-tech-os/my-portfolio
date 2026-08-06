@@ -44,7 +44,7 @@ const itemVariants = {
   },
 };
 
-const Contact = () => {
+const Contact = ({ hideHeader = false }) => {
   const formRef = useRef();
   const [sending, setSending] = useState(false);
   const [statusMessage, setStatusMessage] = useState(null);
@@ -149,17 +149,19 @@ const Contact = () => {
     >
       <div className="container mx-auto px-6">
         {/* Section Header */}
-        <motion.div variants={itemVariants} className="text-center mb-16">
-          <span className="inline-block px-4 py-2 neu-card text-[var(--accent)] text-sm font-semibold rounded-full mb-4">
-            Get In Touch
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-theme-primary mb-4">
-            Let's <span className="gradient-text">Connect</span>
-          </h2>
-          <p className="text-theme-secondary text-lg max-w-2xl mx-auto">
-            Have a project in mind or want to collaborate? Let's talk!
-          </p>
-        </motion.div>
+        {!hideHeader && (
+          <motion.div variants={itemVariants} className="text-center mb-16">
+            <span className="inline-block px-4 py-2 neu-card text-[var(--accent)] text-sm font-semibold rounded-full mb-4">
+              Get In Touch
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-theme-primary mb-4">
+              Let's <span className="gradient-text">Connect</span>
+            </h2>
+            <p className="text-theme-secondary text-lg max-w-2xl mx-auto">
+              Have a project in mind or want to collaborate? Let's talk!
+            </p>
+          </motion.div>
+        )}
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 max-w-6xl mx-auto">
           {/* Contact Form */}

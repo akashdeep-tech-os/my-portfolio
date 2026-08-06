@@ -1,7 +1,8 @@
 import { useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
-const MagneticButton = ({ children, className = "", whileHover, whileTap, ...props }) => {
+const MagneticButton = ({ children, className = "", whileHover, whileTap, to, href, ...props }) => {
   const ref = useRef(null);
   const [pos, setPos] = useState({ x: 0, y: 0 });
 
@@ -15,18 +16,29 @@ const MagneticButton = ({ children, className = "", whileHover, whileTap, ...pro
 
   const handleLeave = () => setPos({ x: 0, y: 0 });
 
+  const motionProps = {
+    ref,
+    onMouseMove: handleMouse,
+    onMouseLeave: handleLeave,
+    animate: { x: pos.x, y: pos.y },
+    whileHover,
+    whileTap,
+    transition: { type: "spring", stiffness: 150, damping: 15, mass: 0.1 },
+    className,
+  };
+
+  if (to) {
+    return (
+      <motion.div {...motionProps}>
+        <Link to={to} className="block" {...props}>
+          {children}
+        </Link>
+      </motion.div>
+    );
+  }
+
   return (
-    <motion.a
-      ref={ref}
-      onMouseMove={handleMouse}
-      onMouseLeave={handleLeave}
-      animate={{ x: pos.x, y: pos.y }}
-      whileHover={whileHover}
-      whileTap={whileTap}
-      transition={{ type: "spring", stiffness: 150, damping: 15, mass: 0.1 }}
-      className={className}
-      {...props}
-    >
+    <motion.a href={href} {...motionProps} {...props}>
       {children}
     </motion.a>
   );

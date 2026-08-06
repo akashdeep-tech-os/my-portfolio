@@ -8,10 +8,10 @@ export default defineConfig({
     react(),
     tailwindcss(),
     ViteImageOptimizer({
-      png: { quality: 75 },
-      jpg: { quality: 75 },
-      webp: { quality: 75 },
-      avif: { quality: 60 },
+      png: { quality: 70, effort: 6 },
+      jpg: { quality: 70, effort: 6 },
+      webp: { quality: 72, effort: 6 },
+      avif: { quality: 60, effort: 6 },
     }),
   ],
   build: {
@@ -21,6 +21,7 @@ export default defineConfig({
           vendor: ['react', 'react-dom', 'react-router-dom'],
           motion: ['framer-motion'],
           icons: ['react-icons'],
+          emailjs: ['@emailjs/browser'],
         },
       },
     },

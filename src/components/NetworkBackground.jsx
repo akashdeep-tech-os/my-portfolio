@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import { useTheme } from "../context/useTheme";
 
-const DOT_COUNT = 50;
+const DOT_COUNT = 40;
 
 function createDot(width, height) {
   return {
@@ -24,12 +24,8 @@ function drawDot(ctx, dot, isDark) {
   ctx.beginPath();
   ctx.arc(dot.x, dot.y, dot.radius, 0, Math.PI * 2);
   ctx.fillStyle = isDark
-    ? "rgba(96, 165, 250, 0.7)"
-    : "rgba(79, 142, 247, 0.6)";
-  ctx.shadowBlur = 10;
-  ctx.shadowColor = isDark
-    ? "rgba(96, 165, 250, 0.5)"
-    : "rgba(79, 142, 247, 0.4)";
+    ? "rgba(96, 165, 250, 0.8)"
+    : "rgba(79, 142, 247, 0.7)";
   ctx.fill();
 }
 
@@ -62,7 +58,8 @@ const NetworkBackground = () => {
   useEffect(() => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
-    let animationId;
+    let animationId = null;
+    let visible = true;
     const isDark = theme === "dark";
 
     const resize = () => {
@@ -78,6 +75,7 @@ const NetworkBackground = () => {
     }
 
     const animate = () => {
+      if (!visible) return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       for (const dot of dotsRef.current) {
@@ -92,7 +90,18 @@ const NetworkBackground = () => {
 
     animate();
 
+    const observer = new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      if (visible && !animationId) animate();
+      else if (!visible && animationId) {
+        cancelAnimationFrame(animationId);
+        animationId = null;
+      }
+    });
+    observer.observe(canvas);
+
     return () => {
+      observer.disconnect();
       window.removeEventListener("resize", resize);
       cancelAnimationFrame(animationId);
     };

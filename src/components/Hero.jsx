@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
@@ -51,11 +52,11 @@ const Typewriter = ({ words }) => {
 
 const Hero = () => {
   const socialLinks = [
-    { icon: FaGithub, href: "https://github.com/akashdeep-tech-os", hoverClass: "hover-github", label: "GitHub" },
-    { icon: FaLinkedin, href: "https://linkedin.com/in/akashdeep", hoverClass: "hover-linkedin", label: "LinkedIn" },
-    { icon: FaTwitter, href: "https://twitter.com/akashdeep", hoverClass: "hover-twitter", label: "Twitter" },
-    { icon: FaEnvelope, href: "#contact", hoverClass: "hover-email", label: "Email" },
-    { icon: SiLeetcode, href: "https://leetcode.com/akashdeep", hoverClass: "hover-leetcode", label: "LeetCode" },
+    { icon: FaGithub, href: "https://github.com/akashdeep-tech-os", hoverClass: "hover-github", label: "GitHub", external: true },
+    { icon: FaLinkedin, href: "https://linkedin.com/in/akashdeep", hoverClass: "hover-linkedin", label: "LinkedIn", external: true },
+    { icon: FaTwitter, href: "https://twitter.com/akashdeep", hoverClass: "hover-twitter", label: "Twitter", external: true },
+    { icon: FaEnvelope, href: "/contact", hoverClass: "hover-email", label: "Email", external: false },
+    { icon: SiLeetcode, href: "https://leetcode.com/akashdeep", hoverClass: "hover-leetcode", label: "LeetCode", external: true },
   ];
 
   const containerVariants = {
@@ -136,7 +137,7 @@ const Hero = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
           >
             <MagneticButton
-              href="#project"
+              to="/projects"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               className="btn-cta cursor-pointer"
@@ -144,7 +145,7 @@ const Hero = () => {
               View Work
             </MagneticButton>
             <MagneticButton
-              href="#contact"
+              to="/contact"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               className="px-8 py-4 neu-button text-[var(--accent)] font-semibold rounded-2xl cursor-pointer"
@@ -159,16 +160,31 @@ const Hero = () => {
             className="flex gap-4 mt-8 justify-center md:justify-start"
           >
             {socialLinks.map((social, index) => (
-              <motion.a
+              <motion.div
                 key={index}
-                href={social.href}
                 whileHover={{ scale: 1.1, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className={`w-12 h-12 neu-card rounded-xl flex items-center justify-center text-theme-secondary ${social.hoverClass} transition-all duration-300`}
-                aria-label={`Visit ${social.label}`}
               >
-                <social.icon size={20} />
-              </motion.a>
+                {social.external ? (
+                  <a
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`w-12 h-12 neu-card rounded-xl flex items-center justify-center text-theme-secondary ${social.hoverClass} transition-all duration-300`}
+                    aria-label={`Visit ${social.label}`}
+                  >
+                    <social.icon size={20} />
+                  </a>
+                ) : (
+                  <Link
+                    to={social.href}
+                    className={`w-12 h-12 neu-card rounded-xl flex items-center justify-center text-theme-secondary ${social.hoverClass} transition-all duration-300`}
+                    aria-label={`Visit ${social.label}`}
+                  >
+                    <social.icon size={20} />
+                  </Link>
+                )}
+              </motion.div>
             ))}
           </motion.div>
         </div>
@@ -202,6 +218,8 @@ const Hero = () => {
                   src={profileImg_1}
                   alt="Akash Deep, Full Stack Developer from New Delhi, India"
                   className="w-full h-full object-cover"
+                  width={384}
+                  height={384}
                   fetchpriority="high"
                   decoding="async"
                 />

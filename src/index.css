@@ -69,7 +69,6 @@ html {
 body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  overflow-x: hidden;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -112,15 +111,25 @@ body {
 .placeholder-theme-muted::placeholder { color: var(--text-muted); }
 .border-theme-subtle { border-color: var(--border-subtle); }
 
-/* Performance: reduce repaint for fixed/absolutely positioned elements */
-.neu-card,
-.neu-button,
-.neu-pressed,
-.gradient-primary,
-.gradient-primary-r,
-.gradient-primary-br {
-  will-change: transform;
+/* Clip horizontal overflow without creating a scroll container.
+   (overflow-x: hidden on body makes body a scroll container, which
+   causes jitter with fixed elements and breaks position: sticky.) */
+html,
+body {
+  overflow-x: clip;
 }
+
+@supports not (overflow: clip) {
+  html,
+  body {
+    overflow-x: hidden;
+  }
+}
+
+/* Only promote elements that are actually animating to GPU layers.
+   Applying will-change to every neu-* element creates hundreds of
+   compositor layers and causes scroll jank. Framer Motion sets
+   will-change on animated elements automatically.
 
 /* Neumorphism Utilities */
 .neu-pressed {

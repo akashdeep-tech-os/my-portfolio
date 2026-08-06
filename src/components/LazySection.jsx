@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 
-const LazySection = ({ children, rootMargin = "200px" }) => {
+const LazySection = ({ children, rootMargin = "600px 0px" }) => {
   const [visible, setVisible] = useState(false);
   const ref = useRef(null);
 
@@ -20,7 +20,11 @@ const LazySection = ({ children, rootMargin = "200px" }) => {
     return () => observer.disconnect();
   }, [rootMargin]);
 
-  return <div ref={ref}>{visible ? children : null}</div>;
+  return (
+    <div ref={ref} style={{ contentVisibility: "auto" }}>
+      {visible ? children : null}
+    </div>
+  );
 };
 
 export default LazySection;

@@ -1,27 +1,33 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { FaExternalLinkAlt, FaGithub, FaExpand } from "react-icons/fa";
 import ImageLightbox from "./ImageLightbox";
 
-const ProjectCard = ({ title, description, image, alt, tech, demo, code }) => {
+const ProjectCard = ({ slug, title, description, image, alt, tech, demo, code }) => {
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  const detailUrl = `/projects/${slug}`;
 
   return (
     <>
       <motion.article
         whileHover={{ y: -8 }}
-        className="neu-card rounded-3xl overflow-hidden group cursor-pointer"
+        className="neu-card rounded-3xl overflow-hidden group h-full flex flex-col"
       >
         <div className="relative overflow-hidden h-56">
-          <motion.img
-            whileHover={{ scale: 1.1 }}
-            transition={{ duration: 0.5 }}
-            src={image}
-            alt={alt || `${title} project built by Akash Deep`}
-            loading="lazy"
-            className="w-full h-full object-cover"
-            onClick={() => setLightboxOpen(true)}
-          />
+          <Link to={detailUrl} aria-label={`View details of the ${title} project`}>
+            <motion.img
+              whileHover={{ scale: 1.1 }}
+              transition={{ duration: 0.5 }}
+              src={image}
+              alt={alt || `${title} project built by Akash Deep`}
+              loading="lazy"
+              decoding="async"
+              width={500}
+              height={375}
+              className="w-full h-56 object-cover"
+            />
+          </Link>
 
           <button
             onClick={() => setLightboxOpen(true)}
@@ -59,16 +65,21 @@ const ProjectCard = ({ title, description, image, alt, tech, demo, code }) => {
           </div>
         </div>
 
-        <div className="p-6">
-          <h3 className="text-xl font-semibold text-theme-primary mb-2 group-hover:text-[var(--accent)] transition-colors duration-300">
-            {title}
+        <div className="p-6 flex flex-col flex-1">
+          <h3 className="text-xl font-semibold text-theme-primary mb-2">
+            <Link
+              to={detailUrl}
+              className="group-hover:text-[var(--accent)] transition-colors duration-300"
+            >
+              {title}
+            </Link>
           </h3>
 
           <p className="text-theme-secondary text-sm mb-4 leading-relaxed line-clamp-2">
             {description}
           </p>
 
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-2 mt-auto">
             {tech.slice(0, 4).map((item, index) => (
               <span
                 key={index}
@@ -83,6 +94,14 @@ const ProjectCard = ({ title, description, image, alt, tech, demo, code }) => {
               </span>
             )}
           </div>
+
+          <Link
+            to={detailUrl}
+            className="mt-4 text-[var(--accent)] text-sm font-medium hover:underline inline-flex items-center gap-1"
+            aria-label={`View ${title} project details`}
+          >
+            View Project Details
+          </Link>
         </div>
       </motion.article>
 

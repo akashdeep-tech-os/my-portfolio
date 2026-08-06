@@ -22,7 +22,7 @@ const itemVariants = {
   },
 };
 
-const Work = () => {
+const Work = ({ hideHeader = false }) => {
   return (
     <motion.section
       initial="hidden"
@@ -34,17 +34,19 @@ const Work = () => {
     >
       <div className="container mx-auto px-6">
         {/* Section Header */}
-        <motion.div variants={itemVariants} className="text-center mb-16">
-          <span className="inline-block px-4 py-2 neu-card text-[var(--accent)] text-sm font-semibold rounded-full mb-4">
-            Experience
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-theme-primary mb-4">
-            My <span className="gradient-text">Professional Journey</span>
-          </h2>
-          <p className="text-theme-secondary text-lg max-w-2xl mx-auto">
-            Building expertise through real-world experience
-          </p>
-        </motion.div>
+        {!hideHeader && (
+          <motion.div variants={itemVariants} className="text-center mb-16">
+            <span className="inline-block px-4 py-2 neu-card text-[var(--accent)] text-sm font-semibold rounded-full mb-4">
+              Experience
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-theme-primary mb-4">
+              My <span className="gradient-text">Professional Journey</span>
+            </h2>
+            <p className="text-theme-secondary text-lg max-w-2xl mx-auto">
+              Building expertise through real-world experience
+            </p>
+          </motion.div>
+        )}
 
         {/* Timeline */}
         <div className="max-w-4xl mx-auto relative">

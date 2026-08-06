@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { FaGithub, FaLinkedin, FaTwitter, FaHeart } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
 
@@ -11,12 +12,11 @@ const Footer = () => {
   ];
 
   const quickLinks = [
-    { label: "Home", href: "#home" },
-    { label: "About", href: "#about" },
-    { label: "Skills", href: "#skills" },
-    { label: "Projects", href: "#project" },
-    { label: "Experience", href: "#experience" },
-    { label: "Contact", href: "#contact" },
+    { label: "Home", href: "/" },
+    { label: "About", href: "/about" },
+    { label: "Projects", href: "/projects" },
+    { label: "Resume", href: "/resume" },
+    { label: "Contact", href: "/contact" },
   ];
 
   return (
@@ -31,10 +31,10 @@ const Footer = () => {
             viewport={{ once: true }}
             className="text-2xl font-bold"
           >
-            <a href="/" aria-label="Akash Deep — Home">
+            <Link to="/" aria-label="Akash Deep — Home">
               <span className="gradient-text">Akash</span>
               <span className="text-theme-secondary">Deep</span>
-            </a>
+            </Link>
           </motion.div>
 
           {/* Quick Links for internal linking */}
@@ -46,13 +46,13 @@ const Footer = () => {
             className="flex flex-wrap justify-center gap-x-6 gap-y-2"
           >
             {quickLinks.map((link) => (
-              <a
+              <Link
                 key={link.href}
-                href={link.href}
+                to={link.href}
                 className="text-theme-secondary text-sm hover:text-[var(--accent)] transition-colors duration-300"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </motion.nav>
 
@@ -67,6 +67,8 @@ const Footer = () => {
               <motion.a
                 key={index}
                 href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.1, y: -3 }}
                 whileTap={{ scale: 0.95 }}
                 className={`w-10 h-10 neu-card rounded-xl flex items-center justify-center text-theme-secondary ${social.hoverClass} transition-all duration-300`}

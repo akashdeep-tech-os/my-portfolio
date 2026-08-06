@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { FaArrowRight } from "react-icons/fa";
 import { projects } from "../assets/assets";
 import ProjectCard from "./ProjectCard";
@@ -61,7 +62,7 @@ const Project = () => {
         </motion.div>
 
         {/* View More Button */}
-        <motion.div variants={itemVariants} className="text-center mt-12">
+        <motion.div variants={itemVariants} className="text-center mt-12 flex flex-col sm:flex-row justify-center gap-4">
           <MagneticButton
             href="https://github.com/akashdeep-tech-os"
             target="_blank"
@@ -71,6 +72,13 @@ const Project = () => {
             <span>View All on GitHub</span>
             <FaArrowRight className="group-hover:translate-x-1 transition-transform duration-300" />
           </MagneticButton>
+          <Link
+            to="/projects"
+            className="inline-flex items-center gap-3 px-8 py-4 btn-cta font-semibold rounded-2xl"
+          >
+            <span>View All Projects</span>
+            <FaArrowRight className="group-hover:translate-x-1 transition-transform duration-300" />
+          </Link>
         </motion.div>
       </div>
     </motion.section>

@@ -1,8 +1,10 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { FaArrowRight } from "react-icons/fa";
 import { aboutInfo } from "../assets/assets";
 import profileImg from "../assets/profile.avif";
 
-const About = () => {
+const About = ({ hideHeader = false }) => {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -34,18 +36,27 @@ const About = () => {
     >
       <div className="container mx-auto px-6">
         {/* Section Header */}
-        <motion.div variants={itemVariants} className="text-center mb-16">
-          <span className="inline-block px-4 py-2 neu-card text-[var(--accent)] text-sm font-semibold rounded-full mb-4">
-            About Me
-          </span>
-          <h2 className="text-3xl md:text-4xl font-bold text-theme-primary mb-4">
-            Get to know{" "}
-            <span className="gradient-text">my background</span>
-          </h2>
-          <p className="text-theme-secondary text-lg max-w-2xl mx-auto">
-            Software Engineer crafting scalable enterprise solutions
-          </p>
-        </motion.div>
+        {!hideHeader && (
+          <motion.div variants={itemVariants} className="text-center mb-16">
+            <span className="inline-block px-4 py-2 neu-card text-[var(--accent)] text-sm font-semibold rounded-full mb-4">
+              About Me
+            </span>
+            <h2 className="text-3xl md:text-4xl font-bold text-theme-primary mb-4">
+              Get to know{" "}
+              <span className="gradient-text">my background</span>
+            </h2>
+            <p className="text-theme-secondary text-lg max-w-2xl mx-auto">
+              Software Engineer crafting scalable enterprise solutions
+            </p>
+            <Link
+              to="/about"
+              className="mt-6 inline-flex items-center gap-2 text-[var(--accent)] font-medium hover:underline"
+            >
+              More about me
+              <FaArrowRight size={14} aria-hidden="true" />
+            </Link>
+          </motion.div>
+        )}
 
         {/* Content Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
@@ -57,14 +68,16 @@ const About = () => {
 
               {/* Image container */}
               <div className="relative neu-card rounded-3xl overflow-hidden p-2">
-                <div className="rounded-2xl overflow-hidden">
+                <div className="rounded-2xl overflow-hidden aspect-[4/3]">
                   <motion.img
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.4 }}
-                    className="w-full h-auto object-cover"
+                    className="w-full h-full object-cover"
                     src={profileImg}
                     alt="Akash Deep, Python and React developer based in New Delhi, India"
                     loading="lazy"
+                    width={800}
+                    height={600}
                   />
                 </div>
               </div>
