@@ -68,11 +68,11 @@ const About = ({ hideHeader = false }) => {
 
               {/* Image container */}
               <div className="relative neu-card rounded-3xl overflow-hidden p-2">
-                <div className="rounded-2xl overflow-hidden aspect-[4/3]">
+                <div className="rounded-2xl overflow-hidden aspect-[3/4]">
                   <motion.img
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.4 }}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-cover object-top"
                     src={profileImg}
                     alt="Akash Deep, Python and React developer based in New Delhi, India"
                     loading="lazy"
