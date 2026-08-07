@@ -51,6 +51,8 @@ const Seo = ({
   modifiedTime,
   author = SITE.name,
 }) => {
+  if (typeof document === "undefined") return null;
+
   const url = `${SITE.basePath}${path}`;
   const fullTitle = title ? `${title} | Akash Deep` : SITE.title;
 

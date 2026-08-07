@@ -106,7 +106,7 @@ const About = ({ hideHeader = false }) => {
               </h3>
 
               <p className="text-theme-secondary leading-relaxed">
-                Software Engineer with 1+ years of experience developing scalable enterprise web applications using React.js, JavaScript, FastAPI, and PostgreSQL. Proficient in building responsive user interfaces, integrating RESTful APIs, optimizing application performance, and delivering secure, high-quality software solutions.
+                Software Engineer with 1+ years of experience developing scalable enterprise web applications using React.js, JavaScript, FastAPI, and PostgreSQL. Proficient in building responsive user interfaces, integrating RESTful APIs, optimizing application performance, and delivering secure, high-quality software solutions. Based in New Delhi, I'm open to freelance, remote, and full-time Python, FastAPI, Django, and React development roles across India and internationally.
               </p>
 
               <p className="text-theme-secondary leading-relaxed">

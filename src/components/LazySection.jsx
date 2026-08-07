@@ -1,7 +1,9 @@
 import { useState, useRef, useEffect } from "react";
 
 const LazySection = ({ children, rootMargin = "600px 0px" }) => {
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(
+    () => typeof window === "undefined" || !("IntersectionObserver" in window)
+  );
   const ref = useRef(null);
 
   useEffect(() => {

@@ -118,7 +118,7 @@ const Hero = () => {
             className="text-2xl md:text-3xl lg:text-4xl font-semibold mb-6 text-theme-secondary min-h-[1.5em]"
           >
             <span className="sr-only">
-              Software Engineer, Full Stack Developer, React & FastAPI Developer
+              Software Engineer, Full Stack Developer, Python Developer New Delhi India, React & FastAPI Developer
             </span>
             <Typewriter words={TYPED_WORDS} aria-hidden="true" />
           </motion.h2>
@@ -129,7 +129,9 @@ const Hero = () => {
           >
             Software Engineer with 1+ years of experience building scalable
             enterprise web applications using React.js, JavaScript, FastAPI,
-            and PostgreSQL. Passionate about responsive UIs and high-quality software.
+            and PostgreSQL. Looking to hire a Python developer in India? I build
+            web apps, REST APIs, and AI/computer vision solutions — available
+            for freelance and full-time remote work.
           </motion.p>
 
           <motion.div
@@ -220,7 +222,7 @@ const Hero = () => {
                   className="w-full h-full object-cover"
                   width={384}
                   height={384}
-                  fetchpriority="high"
+                  fetchPriority="high"
                   decoding="async"
                 />
               </div>

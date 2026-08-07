@@ -1,17 +1,16 @@
-import { lazy, Suspense, useEffect } from 'react'
+import { useEffect } from 'react'
 import { Route, Routes, useLocation } from 'react-router-dom'
 import Home from './pages/Home'
+import AboutPage from './pages/About'
+import ProjectsPage from './pages/Projects'
+import ProjectDetail from './pages/ProjectDetail'
+import ResumePage from './pages/Resume'
+import ContactPage from './pages/Contact'
+import NotFound from './pages/NotFound'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import ScrollProgress from './components/ScrollProgress'
 import BackToTop from './components/BackToTop'
-
-const AboutPage = lazy(() => import('./pages/About'))
-const ProjectsPage = lazy(() => import('./pages/Projects'))
-const ProjectDetail = lazy(() => import('./pages/ProjectDetail'))
-const ResumePage = lazy(() => import('./pages/Resume'))
-const ContactPage = lazy(() => import('./pages/Contact'))
-const NotFound = lazy(() => import('./pages/NotFound'))
 
 const ScrollToTop = () => {
   const { pathname } = useLocation()
@@ -22,18 +21,6 @@ const ScrollToTop = () => {
 
   return null
 }
-
-const PageFallback = () => (
-  <div
-    className="min-h-screen flex items-center justify-center bg-theme-primary"
-    aria-label="Loading page"
-  >
-    <div
-      className="w-10 h-10 rounded-full border-4 border-[var(--accent)]/20 border-t-[var(--accent)] animate-spin"
-      role="status"
-    />
-  </div>
-)
 
 const App = () => {
   return (
@@ -48,17 +35,15 @@ const App = () => {
       </a>
       <Navbar />
       <main id="main-content">
-        <Suspense fallback={<PageFallback />}>
-          <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/about' element={<AboutPage />} />
-            <Route path='/projects' element={<ProjectsPage />} />
-            <Route path='/projects/:slug' element={<ProjectDetail />} />
-            <Route path='/resume' element={<ResumePage />} />
-            <Route path='/contact' element={<ContactPage />} />
-            <Route path='*' element={<NotFound />} />
-          </Routes>
-        </Suspense>
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/about' element={<AboutPage />} />
+          <Route path='/projects' element={<ProjectsPage />} />
+          <Route path='/projects/:slug' element={<ProjectDetail />} />
+          <Route path='/resume' element={<ResumePage />} />
+          <Route path='/contact' element={<ContactPage />} />
+          <Route path='*' element={<NotFound />} />
+        </Routes>
       </main>
       <Footer />
       <BackToTop />
